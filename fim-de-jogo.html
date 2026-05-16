@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fim de Jogo — Era da Trivia</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="cabecalho">
+    <a href="index.html" class="logo">
+      <svg class="icone-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="6" y="11" width="12" height="9" rx="2"/>
+        <path d="M6 11V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"/>
+        <path d="M9 15h.01M15 15h.01"/>
+      </svg>
+      <span class="texto-logo">ERA DA TRIVIA</span>
+    </a>
+    <div class="direita-cabecalho">
+      <div class="emblema-usuario">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M20 21a8 8 0 1 0-16 0"/>
+        </svg>
+        <span id="nome-cabecalho">—</span>
+      </div>
+      <button class="btn-sair" id="btn-sair">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        <span>SAIR</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="pagina-fim">
+    <div class="conteudo-fim">
+
+      <div class="titulo-fim">
+        <h1>GAME OVER</h1>
+        <p id="titulo-jogo-fim">PARTIDA ENCERRADA</p>
+      </div>
+
+      <div class="exibicao-pontos">
+        <p class="rotulo">PONTOS NESTA PARTIDA</p>
+        <p class="valor-pontos" id="pontos-partida">0</p>
+        <p class="pontos-totais">
+          TOTAL ACUMULADO:
+          <span id="pontos-total">0</span> PTS
+        </p>
+      </div>
+
+      <div class="grade-stats">
+        <div class="card-stat">
+          <p class="rotulo">ACERTOS</p>
+          <p class="valor ciano" id="stat-acertos">0</p>
+        </div>
+        <div class="card-stat">
+          <p class="rotulo">ERROS</p>
+          <p class="valor rosa" id="stat-erros">0</p>
+        </div>
+        <div class="card-stat">
+          <p class="rotulo">TEMPO</p>
+          <p class="valor amarelo" id="stat-tempo">0s</p>
+        </div>
+      </div>
+
+      <div class="resultado-posicao">
+        <h3>SUA POSIÇÃO NO RANKING</h3>
+        <p class="posicao-num" id="posicao-num">--</p>
+        <p class="total-jogadores" id="total-jogadores">DE -- JOGADORES</p>
+      </div>
+
+      <div class="acoes-fim">
+        <a href="#" class="btn-primario" id="btn-jogar-novamente">JOGAR NOVAMENTE</a>
+        <a href="index.html" class="btn-secundario" id="btn-ir-inicio">INÍCIO</a>
+        <a href="index.html#ranking" class="btn-secundario" id="btn-ver-ranking">RANKING</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <p>&copy; 1985 ERA DA TRIVIA INC.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="fim-de-jogo.js"></script>
+</body>
+</html>
