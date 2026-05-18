@@ -1,0 +1,28 @@
+.pagina-fim { min-height: 100vh; padding: 2rem 1.5rem 4rem; }
+.conteudo-fim { max-width: 600px; margin: 0 auto; text-align: center; animation: entradaCard .5s cubic-bezier(.22,1,.36,1); }
+.titulo-fim { margin-bottom: 2rem; padding-top: 1rem; }
+.titulo-fim h1 { font-family: 'Press Start 2P', monospace; font-size: 1.4rem; color: var(--rosa); text-shadow: 0 0 20px var(--rosa); margin-bottom: .6rem; animation: pulsar 2s infinite; }
+@keyframes pulsar { 0%, 100% { opacity: 1; } 50% { opacity: .72; } }
+.titulo-fim p  { font-family: 'Press Start 2P', monospace; font-size: .55rem; color: var(--suave); }
+
+.exibicao-pontos { background: var(--card); border: 2px solid var(--amarelo); border-radius: 12px; padding: 2rem; margin-bottom: 1.4rem; box-shadow: 0 0 30px rgba(255,229,0,.2); }
+.exibicao-pontos .rotulo { font-family: 'Press Start 2P', monospace; font-size: .5rem; color: var(--suave); margin-bottom: .5rem; }
+.exibicao-pontos .valor-pontos { font-family: 'Press Start 2P', monospace; font-size: 2.4rem; color: var(--amarelo); text-shadow: 0 0 20px var(--amarelo); line-height: 1; }
+.exibicao-pontos .pontos-totais { font-family: 'Press Start 2P', monospace; font-size: .45rem; color: var(--suave); margin-top: .6rem; }
+
+.grade-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: .9rem; margin-bottom: 1.4rem; }
+.card-stat { background: var(--card); border: 1px solid var(--borda); border-radius: 9px; padding: 1rem; }
+.card-stat .rotulo { font-family: 'Press Start 2P', monospace; font-size: .38rem; color: var(--suave); margin-bottom: .5rem; line-height: 1.7; }
+.card-stat .valor  { font-family: 'Press Start 2P', monospace; font-size: .95rem; }
+.card-stat .valor.ciano   { color: var(--ciano);   text-shadow: 0 0 10px var(--ciano); }
+.card-stat .valor.rosa    { color: var(--rosa);    text-shadow: 0 0 10px var(--rosa); }
+.card-stat .valor.amarelo { color: var(--amarelo); text-shadow: 0 0 10px var(--amarelo); }
+
+.resultado-posicao { background: var(--card); border: 1px solid rgba(0,229,255,.28); border-radius: 9px; padding: 1.5rem; margin-bottom: 2rem; }
+.resultado-posicao h3 { font-family: 'Press Start 2P', monospace; font-size: .5rem; color: var(--ciano); margin-bottom: .9rem; }
+.resultado-posicao .posicao-num { font-family: 'Press Start 2P', monospace; font-size: 1.4rem; color: var(--texto); margin-bottom: .4rem; }
+.resultado-posicao .total-jogadores { font-family: 'Press Start 2P', monospace; font-size: .43rem; color: var(--suave); }
+
+.acoes-fim { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; }
+
+@media (max-width: 640px) { .grade-stats { grid-template-columns: 1fr; } .titulo-fim h1 { font-size: 1rem; } .exibicao-pontos .valor-pontos { font-size: 1.8rem; } }

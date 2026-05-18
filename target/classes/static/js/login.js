@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', async () => {
+try {
   const { ok } = await Api.auth.sessao();
   if (ok) { window.location.replace('index.html'); return; }
+} catch (_) {} 
 
   document.querySelectorAll('.btn-aba').forEach(btn => {
     btn.addEventListener('click', () => {
@@ -17,14 +19,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   const btnEntrar   = document.getElementById('btn-entrar');
   const btnCadastrar = document.getElementById('btn-cadastrar');
 
-  async function doLogin() {
-    elErrLogin.classList.remove('visivel');
-    const nome  = document.getElementById('login-usuario').value;
-    const senha = document.getElementById('login-senha').value;
+async function doLogin() {
+  elErrLogin.classList.remove('visivel');
+  const nome  = document.getElementById('login-usuario').value;
+  const senha = document.getElementById('login-senha').value;
+  try {
     const { ok, data } = await Api.auth.entrar(nome, senha);
     if (ok) { window.location.href = 'index.html'; }
     else { elErrLogin.textContent = data.erro; elErrLogin.classList.add('visivel'); sacudir(btnEntrar); }
+  } catch (_) {
+    elErrLogin.textContent = 'Erro de conexão. Backend está rodando?';
+    elErrLogin.classList.add('visivel');
+    sacudir(btnEntrar);
   }
+}
 
   async function doCadastro() {
     elErrCad.classList.remove('visivel');
