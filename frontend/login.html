@@ -4,15 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login — Era da Trivia</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
-
   <div class="envoltorio-login">
     <div class="card-login">
-
       <div class="logo-login">
-
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="6" y="11" width="12" height="9" rx="2"/>
+          <path d="M6 11V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4"/>
+          <path d="M9 15h.01M15 15h.01"/>
+        </svg>
         <h1>ERA DA TRIVIA</h1>
         <p>Entre para jogar e competir</p>
       </div>
@@ -23,7 +26,7 @@
       </div>
 
       <div class="painel-aba ativo" id="painel-login">
-        <div class="erro-campo" id="erro-login"></div>
+        <div class="mensagem-form erro" id="msg-login"></div>
         <div class="grupo-campo">
           <label for="login-usuario">USUÁRIO</label>
           <input type="text" id="login-usuario" placeholder="Seu nome de usuário" autocomplete="username" autofocus>
@@ -36,11 +39,11 @@
       </div>
 
       <div class="painel-aba" id="painel-cadastro">
-        <div class="erro-campo"    id="erro-cad"></div>
-        <div class="sucesso-campo" id="sucesso-cad"></div>
+        <div class="mensagem-form erro"    id="msg-cad"></div>
+        <div class="mensagem-form sucesso" id="msg-cad-ok"></div>
         <div class="grupo-campo">
           <label for="cad-usuario">USUÁRIO</label>
-          <input type="text" id="cad-usuario" placeholder="Escolha um nome (3–16 chars)" maxlength="16" autocomplete="username">
+          <input type="text" id="cad-usuario" placeholder="3–16 chars, letras e números" maxlength="16" autocomplete="username">
         </div>
         <div class="grupo-campo">
           <label for="cad-senha">SENHA</label>
@@ -52,11 +55,11 @@
         </div>
         <button class="btn-primario" id="btn-cadastrar">CRIAR CONTA</button>
       </div>
-
     </div>
   </div>
 
-  <script src="script.js"></script>
-  <script src="login.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/util.js"></script>
+  <script src="js/login.js"></script>
 </body>
 </html>
