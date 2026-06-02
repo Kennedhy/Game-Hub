@@ -1,0 +1,33 @@
+# Build output
+target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Local databases and runtime files
+*.db
+*.sqlite
+*.sqlite3
+*.log
+
+# Environment and local config
+.env
+.env.*
+!.env.example
+
+# IDEs and editors
+.idea/
+*.iml
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp

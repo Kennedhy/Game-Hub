@@ -1,4 +1,11 @@
-const API_BASE = '/api';
+const paramsApi = new URLSearchParams(window.location.search).get('api');
+if (paramsApi) localStorage.setItem('GAME_HUB_API_BASE', paramsApi);
+
+const API_BASE = (
+  window.GAME_HUB_API_BASE ||
+  localStorage.getItem('GAME_HUB_API_BASE') ||
+  '/api'
+).replace(/\/$/, '');
 
 const Api = {
   async _fetch(path, opts = {}) {
