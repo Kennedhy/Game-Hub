@@ -1,0 +1,134 @@
+.termo-main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 140px);
+    padding: 20px 0;
+    width: 100%;
+}
+
+.termo-game-wrapper {
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: entradaCard .45s cubic-bezier(.22,1,.36,1);
+}
+
+.termo-lista-regras {
+    list-style: none;
+}
+.termo-lista-regras li {
+    font-size: .82rem;
+    color: var(--suave);
+    padding: .28rem 0 .28rem 1.1rem;
+    position: relative;
+    line-height: 1.5;
+}
+.termo-lista-regras li::before {
+    content: '>';
+    position: absolute;
+    left: 0;
+    color: var(--roxo) !important;
+    text-shadow: 0 0 8px var(--roxo);
+}
+
+.termo-grid-board {
+    display: grid;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 8px;
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 5 / 6;
+    margin-bottom: 20px;
+}
+
+.termo-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.termo-box {
+    background: var(--card2);
+    border: 2px solid var(--borda);
+    border-radius: var(--raio);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--texto);
+    user-select: none;
+    transition: all 0.1s ease;
+}
+
+.termo-box.pop {
+    transform: scale(1.05);
+    border-color: var(--roxo);
+    box-shadow: 0 0 10px rgba(180, 77, 255, 0.2);
+}
+
+.termo-box.correct, .termo-key.correct { 
+    background-color: rgba(57, 255, 20, 0.12) !important; 
+    border-color: var(--verde) !important; 
+    color: var(--verde) !important;
+    text-shadow: 0 0 8px var(--verde);
+}
+
+.termo-box.misplaced, .termo-key.misplaced { 
+    background-color: rgba(255, 229, 0, 0.12) !important; 
+    border-color: var(--amarelo) !important; 
+    color: var(--amarelo) !important;
+    text-shadow: 0 0 8px var(--amarelo);
+}
+
+.termo-box.wrong, .termo-key.wrong { 
+    background-color: rgba(11, 7, 20, 0.6) !important; 
+    border-color: var(--borda) !important; 
+    color: var(--suave) !important;
+    opacity: 0.4;
+}
+
+.termo-keyboard {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.termo-keyboard-row {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+.termo-key {
+    background-color: var(--card);
+    color: var(--texto);
+    border: 1px solid var(--borda);
+    border-radius: 4px;
+    padding: 12px 0;
+    flex: 1;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.1s, all 0.2s;
+}
+
+.termo-key:hover {
+    border-color: var(--suave);
+    background-color: var(--card2);
+}
+
+.termo-key-wide {
+    flex: 1.5;
+    font-size: 0.52rem;
+    font-family: 'Press Start 2P', monospace;
+    color: var(--suave);
+}
