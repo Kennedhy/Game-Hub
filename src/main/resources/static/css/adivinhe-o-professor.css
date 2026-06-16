@@ -1,0 +1,141 @@
+.container{
+    max-width:700px !important;
+    margin:60px auto !important;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+}
+
+.titulo-jogo{
+    margin-bottom:2rem;
+}
+
+.mode-selector{
+    display:flex;
+    gap:10px;
+    margin-bottom:2rem;
+}
+
+.mode-btn{
+    min-width:170px;
+    padding:.9rem 1rem;
+    background:var(--card);
+    border:2px solid var(--borda);
+    border-radius:8px;
+    color:var(--suave);
+    cursor:pointer;
+    font-family:'Press Start 2P', monospace;
+    font-size:.45rem;
+    transition:.2s;
+}
+
+.mode-btn:hover{
+    border-color:var(--ciano);
+}
+
+.mode-btn.active{
+    border-color:var(--ciano);
+    color:var(--ciano);
+    background:rgba(0,229,255,.08);
+    box-shadow:0 0 20px rgba(0,229,255,.25);
+}
+
+#game-area{
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+#image-container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+}
+
+#professor-image{
+    width:280px;
+    height:280px;
+    object-fit:cover;
+    border-radius:12px;
+    border:2px solid var(--amarelo);
+    box-shadow:0 0 25px rgba(255,229,0,.2);
+}
+
+.attempts{
+    margin-top:1rem;
+    margin-bottom:1rem;
+    font-family:'Press Start 2P', monospace;
+    font-size:.5rem;
+    color:var(--amarelo);
+}
+
+#guess-input{
+    width:320px;
+    height:48px;
+    padding:0 1rem;
+    background:var(--card2);
+    border:2px solid var(--borda);
+    border-radius:8px;
+    color:var(--texto);
+    font-size:1rem;
+    margin-bottom:10px;
+}
+
+#guess-input:focus{
+    outline:none;
+    border-color:var(--rosa);
+    box-shadow:0 0 15px rgba(240,23,111,.3);
+}
+
+#guess-button{
+    padding:.9rem 1.4rem;
+    border:none;
+    border-radius:8px;
+    background:var(--rosa);
+    color:white;
+    font-family:'Press Start 2P', monospace;
+    font-size:.45rem;
+    cursor:pointer;
+    box-shadow:0 0 20px rgba(240,23,111,.35);
+    transition:.2s;
+}
+
+#guess-button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 30px rgba(240,23,111,.55);
+}
+
+#message{
+    margin-top:1rem;
+    min-height:24px;
+    color:var(--ciano);
+    font-weight:bold;
+}
+
+.btn-voltar{
+    margin-top:2rem;
+}
+
+@media(max-width:600px){
+
+    .mode-selector{
+        flex-direction:column;
+        width:100%;
+    }
+
+    .mode-btn{
+        width:100%;
+    }
+
+    #guess-input{
+        width:100%;
+        max-width:320px;
+    }
+
+    #professor-image{
+        width:220px;
+        height:220px;
+    }
+}

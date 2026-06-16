@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivinhe</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/adivinhe-o-professor.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="titulo-jogo brilho-ciano mono">ADIVINHE</h1>
+        <div class="mode-selector">
+            <button id="professor-btn" class="mode-btn active">PROFESSOR</button>
+            <button id="aluno-btn" class="mode-btn">ALUNO</button>
+        </div>
+        <div id="game-area">
+            <div id="image-container">
+                <img id="professor-image" src="" alt="Imagem">
+            </div>
+            <p class="attempts">Tentativas: <span id="attempts">3</span></p>
+            <input type="text" id="guess-input" placeholder="Digite o nome">
+            <button id="guess-button">ADIVINHAR</button>
+            <p id="message"></p>
+        </div>
+        <a href="index.html" class="btn-voltar">Voltar ao Lobby</a>
+    </div>
+    <script src="js/adivinhe-o-professor.js"></script>
+</body>
+</html>
