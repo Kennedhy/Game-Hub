@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (slugJogo === 'termo') elBtnNov.href = 'termo.html';
         else if (slugJogo === 'aracaju') elBtnNov.href = 'aracaju.html';
         else if (slugJogo === 'puzzle') elBtnNov.href = 'puzzle.html';
+        else if (slugJogo === 'adivinhe-o-professor') elBtnNov.href = 'adivinhe-o-professor.html';
         else elBtnNov.href = 'index.html';
     }
 
