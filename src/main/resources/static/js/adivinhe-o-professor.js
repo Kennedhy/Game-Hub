@@ -1,24 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const professors = [
-        { name: 'Professor 1', image: 'images/prof1.jpg' },
-        { name: 'Professor 2', image: 'images/prof2.jpg' },
-        { name: 'Professor 3', image: 'images/prof3.jpg' }
+        { name: 'Felipe dos Anjos', image: 'images/felipe-anjos.jpg' },
+        { name: 'Carlos Gustavo', image: 'images/baba.jpg' },
+        { name: 'Anderson', image: 'images/anderson-barroso.png' },
+        { name: 'Yuri', image: 'images/yuri.png' },
+        { name: 'André', image: 'images/andre.png' }
+
     ];
 
     const students = [
-        { name: 'Lin', image: 'images/alunos/lin.jpg' },
-        { name: 'Arruda', image: 'images/alunos/arruda.jpg' },
-        { name: 'Levi', image: 'images/alunos/levi.jpg' },
-        { name: 'Emanoel', image: 'images/alunos/emanoel.jpg' },
-        { name: 'Kennedhy', image: 'images/alunos/kennedhy.jpg' },
-        { name: 'Wellington', image: 'images/alunos/wellington.jpg' },
-        { name: 'Pedro Guilherme', image: 'images/alunos/pedro-guilherme.jpg' }
+        { name: 'Lin', image: 'images/lin.png' },
+        { name: 'Arruda', image: 'images/arruda.png' },
+        { name: 'Arthur Jacinto', image: 'images/jacinto.png' },
+        { name: 'Felipe', image: 'images/felipe.png' },
+        { name: 'Anderson', image: 'images/anderson.jpg' }
     ];
 
     let currentCharacter;
     let attempts;
     let currentMode = 'professor';
+    let tempoInicio = null;
 
     const image = document.getElementById('professor-image');
     const attemptsSpan = document.getElementById('attempts');
@@ -36,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function startGame() {
+        tempoInicio = Date.now();
 
         const currentList = getCurrentList();
 
@@ -56,9 +59,34 @@ document.addEventListener('DOMContentLoaded', () => {
         guessButton.disabled = false;
     }
 
-    function endGame() {
+    function endGame(vitoria) {
         guessInput.disabled = true;
         guessButton.disabled = true;
+
+        const acertos = vitoria ? 1 : 0;
+        const erros = vitoria ? (3 - attempts) : 3;
+        
+        let pontosFinais = 0;
+        if (vitoria) {
+            if (attempts === 3) pontosFinais = 1000;
+            else if (attempts === 2) pontosFinais = 600;
+            else if (attempts === 1) pontosFinais = 300;
+        }
+
+        const tempoDecorrido = tempoInicio ? Math.floor((Date.now() - tempoInicio) / 1000) : 0;
+
+        const params = new URLSearchParams({
+            jogo: currentMode === 'aluno' ? 'ADIVINHE O ALUNO' : 'ADIVINHE O PROFESSOR',
+            slug: 'adivinhe-o-professor',
+            pontos: pontosFinais,
+            acertos: acertos,
+            erros: erros,
+            tempo: tempoDecorrido
+        });
+
+        setTimeout(() => {
+            window.location.href = `fim-de-jogo.html?${params.toString()}`;
+        }, 1500);
     }
 
     function checkGuess() {
@@ -76,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             message.textContent =
                 'Parabéns! Você acertou.';
 
-            endGame();
+            endGame(true);
 
             return;
         }
@@ -100,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
             message.textContent =
                 `Fim de jogo! A resposta era ${currentCharacter.name}.`;
 
-            endGame();
+            endGame(false);
         }
     }
 
