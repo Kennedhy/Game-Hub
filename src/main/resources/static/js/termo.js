@@ -15,6 +15,7 @@ let colunaAtual = 0;
 let jogoFinalizado = false;
 let matrizSessao = [];
 let estaValidando = false;
+let tempoInicio = null; 
 
 document.addEventListener("DOMContentLoaded", () => {
     const btnComecar = document.getElementById("btn-comecar");
@@ -29,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function prepararPartida() {
+    tempoInicio = Date.now();
     palavraSecreta = DICIONARIO_REAL[Math.floor(Math.random() * DICIONARIO_REAL.length)];
     linhaAtual = 0;
     colunaAtual = 0;
@@ -97,6 +99,25 @@ async function verificarDicionarioReal(palavra) {
     }
 }
 
+async function encerrarJogo(vitoria) {
+    jogoFinalizado = true;
+    const acertos = vitoria ? 1 : 0;
+    const erros = vitoria ? linhaAtual : TENTATIVAS;
+    const tabelaPontos = [1000, 800, 600, 400, 200, 100];
+    const pontosFinais = vitoria ? tabelaPontos[linhaAtual] : 0;
+    const tempoDecorrido = tempoInicio ? Math.floor((Date.now() - tempoInicio) / 1000) : 0;
+    
+    const params = new URLSearchParams({ 
+        jogo: 'TERMO', 
+        slug: 'termo', 
+        pontos: pontosFinais, 
+        acertos: acertos, 
+        erros: erros, 
+        tempo: tempoDecorrido 
+    });
+    window.location.href = `fim-de-jogo.html?${params.toString()}`;
+}
+
 async function validarTentativa() {
     if (jogoFinalizado || estaValidando) return;
     
@@ -158,13 +179,13 @@ async function validarTentativa() {
 
     if (totalAcertos === TAMANHO_PALAVRA) {
         dispararNotificacao("SENSACIONAL! VOCE GANHOU!", "sucesso");
-        jogoFinalizado = true;
+        setTimeout(() => encerrarJogo(true), 2000);
     } else {
         linhaAtual++;
         colunaAtual = 0;
         if (linhaAtual === TENTATIVAS) {
             dispararNotificacao(`FIM DE JOGO! PALAVRA: ${palavraSecreta}`, "erro");
-            jogoFinalizado = true;
+            setTimeout(() => encerrarJogo(false), 2000);
         }
     }
 
