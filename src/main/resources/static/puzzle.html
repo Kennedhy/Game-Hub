@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Era da Trivia | Pixel Puzzle</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/puzzle.css">
+</head>
+<body>
+
+<header class="cabecalho">
+    <a href="index.html" class="logo">
+        <span class="texto-logo">ERA DA TRIVIA</span>
+    </a>
+
+    <div class="direita-cabecalho">
+        <div class="emblema-usuario">
+            <span class="brilho-verde">PIXEL PUZZLE</span>
+        </div>
+    </div>
+</header>
+
+<main class="puzzle-main-container">
+
+    <div id="puzzle-tela-inicio" class="card-inicio puzzle-card-inicio">
+        <div class="icone-inicio verde">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="7" height="7"/>
+                <rect x="14" y="3" width="7" height="7"/>
+                <rect x="3" y="14" width="7" height="7"/>
+                <rect x="14" y="14" width="7" height="7"/>
+            </svg>
+        </div>
+
+        <h1 class="brilho-verde">PIXEL PUZZLE</h1>
+
+        <p class="descricao">
+            Monte a imagem embaralhada movendo as peças para o espaço vazio.
+        </p>
+
+        <div class="regras">
+            <h3>REGRAS</h3>
+            <ul>
+                <li>Clique em uma peça ao lado do espaço vazio para movê-la.</li>
+                <li>Monte a imagem correta para finalizar a partida.</li>
+                <li>Quanto menos movimentos e menos tempo, maior sua pontuação.</li>
+                <li>A pontuação começa em 1000 pontos.</li>
+            </ul>
+        </div>
+
+        <button id="btn-comecar-puzzle" class="btn-jogar puzzle-btn-jogar">
+            COMEÇAR JOGO
+        </button>
+
+        <div style="margin-top: 1.4rem;">
+            <a href="index.html" class="btn-voltar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                VOLTAR AO LOBBY
+            </a>
+        </div>
+    </div>
+
+    <div id="puzzle-tela-jogo" class="puzzle-game-wrapper" style="display: none;">
+
+        <section class="puzzle-topo">
+            <div class="puzzle-stat">
+                <span>MOVIMENTOS</span>
+                <strong id="puzzle-movimentos">0</strong>
+            </div>
+
+            <div class="puzzle-stat">
+                <span>TEMPO</span>
+                <strong id="puzzle-tempo">0s</strong>
+            </div>
+
+            <div class="puzzle-stat">
+                <span>PONTOS</span>
+                <strong id="puzzle-pontos">1000</strong>
+            </div>
+        </section>
+
+        <section class="puzzle-area">
+            <div class="puzzle-lado">
+                <h2 class="brilho-verde">MONTE A IMAGEM</h2>
+                <div id="puzzle-board" class="puzzle-board"></div>
+            </div>
+
+            <div class="puzzle-preview-box">
+                <p>IMAGEM FINAL</p>
+                <div id="preview-puzzle" class="preview-puzzle"></div>
+
+                <button id="btn-reiniciar-puzzle" class="btn-secundario puzzle-btn-reiniciar">
+                    REINICIAR
+                </button>
+
+                <a href="index.html" class="btn-voltar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    DESISTIR
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+</main>
+
+<footer class="rodape"><p>&copy; 2026 ERA DA TRIVIA</p></footer>
+
+<script src="js/api.js"></script>
+<script src="js/util.js"></script>
+<script src="js/puzzle.js"></script>
+</body>
+</html>

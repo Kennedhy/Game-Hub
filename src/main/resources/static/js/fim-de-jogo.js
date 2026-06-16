@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const elPtsTotal = document.getElementById('pontos-total');
   const elAcertos  = document.getElementById('stat-acertos');
   const elErros    = document.getElementById('stat-erros');
+  const elRotuloErros = document.getElementById('rotulo-erros');
   const elTempo    = document.getElementById('stat-tempo');
   const elPosNum   = document.getElementById('posicao-num');
   const elTotalJ   = document.getElementById('total-jogadores');
@@ -33,17 +34,21 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (elTitulo)   elTitulo.textContent = nomeJogo || 'JOGO';
   if (elAcertos)  elAcertos.textContent = acertos;
   if (elErros)    elErros.textContent   = erros;
+    if (elRotuloErros && slugJogo === 'puzzle') {
+        elRotuloErros.textContent = 'MOVIMENTOS';
+    }
   
   if (elTempo)    elTempo.textContent   = fmtTempo(tempo);
   
   if (elPosNum)   elPosNum.textContent  = pos ? `#${pos}` : '--';
   if (elTotalJ)   elTotalJ.textContent  = `DE ${total} JOGADORES`;
-  
-  if (elBtnNov) {
-      if (slugJogo === 'termo') elBtnNov.href = 'termo.html';
-      else if (slugJogo === 'aracaju') elBtnNov.href = 'aracaju.html';
-      else elBtnNov.href = 'index.html';
-  }
+
+    if (elBtnNov) {
+        if (slugJogo === 'termo') elBtnNov.href = 'termo.html';
+        else if (slugJogo === 'aracaju') elBtnNov.href = 'aracaju.html';
+        else if (slugJogo === 'puzzle') elBtnNov.href = 'puzzle.html';
+        else elBtnNov.href = 'index.html';
+    }
 
   animarContador(elPtsPart,  pontosPartida, 1200);
   animarContador(elPtsTotal, pontosTotais,  1600, true);
